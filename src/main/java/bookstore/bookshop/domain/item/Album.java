@@ -1,5 +1,6 @@
 package bookstore.bookshop.domain.item;
 
+import bookstore.bookshop.item.dto.RegistrationDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,4 +16,10 @@ public class Album extends Item{
     private String artist;
 
     private String etc;
+
+    public Album(RegistrationDTO dto) {
+        super(dto.getItemName(), dto.getPrice(), dto.getStockQuantity());
+        this.artist = dto.getArtist();
+        this.etc = dto.getEtc();
+    }
 }

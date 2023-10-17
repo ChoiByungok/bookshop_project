@@ -33,6 +33,15 @@ public abstract class Item {
     @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<>();
 
+    public Item(String itemName, Integer price, Integer stockQuantity) {
+        this.name = itemName;
+        this.price = price;
+        this.stockQuantity = stockQuantity;
+    }
+
+    public Item() {
+    }
+
     //비즈니스 로직이 여기(entity)에 들어갈 예정
     //ddd 도메인 주도 설계라고 함
 
