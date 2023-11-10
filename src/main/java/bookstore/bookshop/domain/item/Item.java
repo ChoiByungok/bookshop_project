@@ -1,6 +1,6 @@
 package bookstore.bookshop.domain.item;
 
-import bookstore.bookshop.domain.Category;
+import bookstore.bookshop.domain.CategoryItem;
 import bookstore.bookshop.exception.NotEnoughStockException;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,8 +30,8 @@ public abstract class Item {
 
     private int stockQuantity;
 
-    @ManyToMany(mappedBy = "items")
-    private List<Category> categories = new ArrayList<>();
+    @OneToMany(mappedBy = "item")
+    private List<CategoryItem> categoryItems = new ArrayList<>();
 
     public Item(String itemName, Integer price, Integer stockQuantity) {
         this.name = itemName;
