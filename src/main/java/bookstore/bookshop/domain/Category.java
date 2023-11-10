@@ -23,11 +23,8 @@ public class Category {
 
     private String name;
 
-    @ManyToMany
-    @JoinTable(name = "category_item",
-            joinColumns = @JoinColumn(name = "category_id"),
-            inverseJoinColumns = @JoinColumn(name = "item_id"))
-    private List<Item> items = new ArrayList<>();
+    @OneToMany(mappedBy = "category")
+    public List<CategoryItem> categoryItems = new ArrayList<>();
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "parent_id")
@@ -37,14 +34,16 @@ public class Category {
     private List<Category> child = new ArrayList<>();
 
 
+
+
     public void addChildCategory(Category child) {
         this.child.add(child);
         child.setParent(this);
     }
 
-    public void addItems(Item item) {
-        this.items.add(item);
-        item.setCategories(child);
-    }
+//    public void addItems(Item item) {
+//        this.items.add(item);
+//        item.setCategories(child);
+//    }
 
 }
