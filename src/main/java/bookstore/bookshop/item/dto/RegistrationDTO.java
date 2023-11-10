@@ -12,6 +12,7 @@ public class RegistrationDTO {
     String itemName;
     Integer price;
     Integer stockQuantity;
+    String parentCategory;
     String categoryName;
     String artist;
     String etc;
